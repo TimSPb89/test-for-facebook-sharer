@@ -31,17 +31,15 @@ function App() {
     : {};
   const meta: any = {
     'og:title': 'test title',
-    'og:description': 'test description'
+    'og:description': 'test description',
+    'og:url': 'https://timspb89.github.io/test-for-facebook-sharer/'
   };
   if (queryParams.imgId) {
     meta['og:image'] = getImageUrl(queryParams.imgId);
   }
   const isOpenGraphKey = (key: string) => key && key.startsWith('og:');
   return (
-    <div className="App">
-      <header className="App-header">
-        <h2>Test Facebook sharing</h2>
-      </header>
+    <>
       <Helmet>
         {Object.keys(meta).map(key => {
           const value = meta[key];
@@ -55,7 +53,12 @@ function App() {
           return null;
         })}
       </Helmet>
-    </div>
+      <div className="App">
+        <header className="App-header">
+          <h2>Test Facebook sharing</h2>
+        </header>
+      </div>
+    </>
   );
 }
 
